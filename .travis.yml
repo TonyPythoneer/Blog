@@ -1,29 +1,33 @@
 language: node_js
 
-python: "2.7.9"
 node_js: stable
 
 cache:
+  yarn: true
   directories:
     - node_modules
 
 install:
-  - yarn install hexo-cli -g
+  - yarn global add hexo-cli
   - yarn install
+
+script:
   - yarn hexo generate
 
 after_success:
-  - CURRENT_DATE = `date +"%Y-%m-%d %T %:z"`
-  - cd public
-  - git config user.name "tonypythoneer"
-  - git config user.email "tonypythoneer@gmail.com"
-  - git add --all .
-  - git commit -m "Site updated ${CURRENT_DATE}"
-  - git push --quiet https://${GITHUB_TOKEN}@github.com/TonyPythoneer/TonyPythoneer.github.io.git master
+  - bash ./ci_scripts/deploy_demo_blog.sh
 
-branches:
-  only:
-    - master
+deploy:
+  provider: script
+  script: ci_scripts/deploy_prod_blog.sh
+  on:
+    branch:
+      - master
+
 env:
   global:
-    - secure: HDn9Ustk4bJsDUmrtuJh8whm0TjXyCa0D5RmioE2FHFn1L9bXWxrAIJu/mVM86vtzdFBDJBNaIF92DOne5aWySFczzgWHnTTN0qZ4/kdiV57pNbOwIok2QqG6fiyylI30d2z4j7sn8CnDQcnZPqrPtesSTjDpRQczDX4XCg4VIqN0WwYFmo4c6CkWuwOdWQ081Ap4DIqPPVV6/5KcFiBYgb/402+wX1tb2yyH6wba0Acb7AiVMPi8pojLYVArZKxpir2oxDvfPuzJyUrh88uqjxZFRtfzzBQ1ITuZP+ggv9iU9i/sAbe7bYVzLAaAmTcCM/1x1eleB1aIwYYLbzLZWvTsVK40BfX856piYee0/fOSj+XQAX0GBIS9TGWTXWAyH72Qk5z70Mw/R28Pp/BottcAo0IK8WZxYbilQ8dRVxgifhcz6T8rn6jhzVyL+WGpe2ZGg+ZvIF2bav2z8v+A7xuuykT7/7yFdNp6t+C5b2nybDZ35mFGWNAGoWYyGBORbpwA4A/j240HnfJzkEc5Qq0V5YxrXeoh5yvP7f9iuMVeuV5jYUhjE2s6GzKqsxPSSCe6kLHq+pMCp0S4lUIZp8H/ZKfdQ5iGeEnWL7jW/lXnLPDe0tjdZpxGBJOV58yOdb10FjKA0gbuZWDaJkGcsCvvLkEA2CrcnVOxtYIEmA=
+    - AUTHOR_NAME: "tonypythoneer"
+    - AUTHOR_EMAIL: "tonypythoneer@gmail.com"
+    - secure: lxXr6O25ZUbVpzS409K4hpzGY39f6c883Xbesi5sS2V83uPGgLO/3LKvIbIgq9mr+0DR554YFlTp7b/QBdOLy0xMcJv1U+p/lcfJwB0UFazmRt9UTrChMU4SL9jW7s0p1q1i4JAZ0eKU8iaVXE1nx+4zvu0j4Hiu9JTamTBTByJM+LtlCEOVfmR/QvoCg61CJgl3A50zTDNHaaWIqhiANPLPPg4sA3LJ5lSvbMkytJZQIHJy5PU8LGgb28XAqqoOnHEwK0bPuJTnSxexoD+/6NizOPgXn2TqwxqPMBHwq3TTgnZ6saPTrijMMsmQVRMMDEh0715gwoRUPixVaNQZLBavmBQIr2alGwpgP0TzTHLnX6y5s9bvDbwZD1FuDWklfpNDzCsCfqE8ahzohzV+ZJ2rvgOMEaLjma8T8IM41r011L/mUHla9BlR0Mw4azgvZ0mvSf9fd2XfiKsyUg6CyXLbuQiLmIa7SMoqK52v45NlbSQ3ikBLTHCMmws1xtCQVEhFAkp9tP8X6TSJX4Qi46GU1PRtETrnUjulkLygNXhnuTjfmcQwO6VMDQIgpHb9usE8t4IPQbLmyW/3BN7DiyATJtoJ61AzzxFXVAROTG/V/UrPzte7MqZopIhh1W5UGDEzMkAsinBGgvySkrO61RNtpcos8PMhPfXSHlmjcNM=
+
+dist: trusty
