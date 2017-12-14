@@ -1,0 +1,29 @@
+language: node_js
+
+python: "2.7.9"
+node_js: stable
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - yarn install hexo-cli -g
+  - yarn install
+  - yarn hexo generate
+
+after_success:
+  - CURRENT_DATE = `date +"%Y-%m-%d %T %:z"`
+  - cd public
+  - git config user.name "tonypythoneer"
+  - git config user.email "tonypythoneer@gmail.com"
+  - git add --all .
+  - git commit -m "Site updated ${CURRENT_DATE}"
+  - git push --quiet https://${GITHUB_TOKEN}@github.com/TonyPythoneer/TonyPythoneer.github.io.git master
+
+branches:
+  only:
+    - master
+env:
+  global:
+    - secure: HDn9Ustk4bJsDUmrtuJh8whm0TjXyCa0D5RmioE2FHFn1L9bXWxrAIJu/mVM86vtzdFBDJBNaIF92DOne5aWySFczzgWHnTTN0qZ4/kdiV57pNbOwIok2QqG6fiyylI30d2z4j7sn8CnDQcnZPqrPtesSTjDpRQczDX4XCg4VIqN0WwYFmo4c6CkWuwOdWQ081Ap4DIqPPVV6/5KcFiBYgb/402+wX1tb2yyH6wba0Acb7AiVMPi8pojLYVArZKxpir2oxDvfPuzJyUrh88uqjxZFRtfzzBQ1ITuZP+ggv9iU9i/sAbe7bYVzLAaAmTcCM/1x1eleB1aIwYYLbzLZWvTsVK40BfX856piYee0/fOSj+XQAX0GBIS9TGWTXWAyH72Qk5z70Mw/R28Pp/BottcAo0IK8WZxYbilQ8dRVxgifhcz6T8rn6jhzVyL+WGpe2ZGg+ZvIF2bav2z8v+A7xuuykT7/7yFdNp6t+C5b2nybDZ35mFGWNAGoWYyGBORbpwA4A/j240HnfJzkEc5Qq0V5YxrXeoh5yvP7f9iuMVeuV5jYUhjE2s6GzKqsxPSSCe6kLHq+pMCp0S4lUIZp8H/ZKfdQ5iGeEnWL7jW/lXnLPDe0tjdZpxGBJOV58yOdb10FjKA0gbuZWDaJkGcsCvvLkEA2CrcnVOxtYIEmA=
