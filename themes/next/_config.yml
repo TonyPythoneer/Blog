@@ -15,12 +15,12 @@ override: false
 # Default NexT favicons placed in `hexo-site/themes/next/source/images/` directory.
 # And if you want to place your icons in `hexo-site/source/`, you must remove `/images` prefix from pathes.
 favicon:
-  small: /images/favicon-16x16.png
-  medium: /images/favicon-32x32.png
-  apple_touch_icon: /images/apple-touch-icon.png
-  safari_pinned_tab: /images/logo.svg
-  android_manifest: /images/manifest.json
-  ms_browserconfig: /images/browserconfig.xml
+  small: /images/favicons/favicon-16x16.png
+  medium: /images/favicons/favicon-32x32.png
+  apple_touch_icon: /images/favicons/apple-touch-icon.png
+  safari_pinned_tab: /images/favicons/logo.svg
+  android_manifest: /images/favicons/manifest.json
+  ms_browserconfig: /images/favicons/browserconfig.xml
 
 # Set default keywords (Use a comma to separate)
 keywords: "Hexo, NexT"
