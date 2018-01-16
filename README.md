@@ -105,6 +105,10 @@ comments: false
 ---
 ```
 
+# 內置標籤
+
+http://theme-next.iissnan.com/tag-plugins.html
+
 # 佈署
 
 Demo page:
