@@ -14,10 +14,12 @@ install:
 script:
   - yarn hexo generate
 
-after_success:
-  - bash ./ci_scripts/deploy_demo_blog.sh
-
 deploy:
+  provider: script
+  script: ci_scripts/deploy_demo_blog.sh
+  on:
+    branch:
+      - develop
   provider: script
   script: ci_scripts/deploy_prod_blog.sh
   on:

@@ -13,4 +13,3 @@ git config user.email "${AUTHOR_EMAIL}"
 git add --all .
 git commit -m "${COMMIT_MESSAGE}"
 git push --force --quiet https://${GITHUB_TOKEN}@github.com/${REPOSITORY} master:${TARGET_BRANCH}
-rm -rf ./.git
