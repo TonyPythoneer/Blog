@@ -1,8 +1,14 @@
-#!/usr/bin/env bash
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
 cd ./public
 
-REPOSITORY="TonyPythoneer/TonyPythoneer.github.io.git"
-TARGET_BRANCH="master"
+if [ "$BRANCH" = "master"]; then
+    REPOSITORY="TonyPythoneer/TonyPythoneer.github.io.git"
+    TARGET_BRANCH="master"
+else
+    REPOSITORY="TonyPythoneer/blog.git"
+    TARGET_BRANCH="gh-pages"
+fi
 
 CURRENT_DATE=`date +"%Y-%m-%d %T %:z"`
 COMMIT_MESSAGE="Site updated ${CURRENT_DATE}"

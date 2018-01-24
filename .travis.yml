@@ -14,17 +14,8 @@ install:
 script:
   - yarn hexo generate
 
-deploy:
-  provider: script
-  script: ci_scripts/deploy_demo_blog.sh
-  on:
-    branch:
-      - develop
-  provider: script
-  script: ci_scripts/deploy_prod_blog.sh
-  on:
-    branch:
-      - master
+after_success:
+  - bash ./deployment_scripts/deploy_blog.sh
 
 env:
   global:
