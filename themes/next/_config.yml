@@ -83,8 +83,9 @@ index_with_subtitle: true
 menu:
   home: / || home
   about: /about/ || user
-  tags: /tags/ || tags
+  guide: /guide/ || book
   categories: /categories/ || th
+  tags: /tags/ || tags
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
