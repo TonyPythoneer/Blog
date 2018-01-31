@@ -1,11 +1,24 @@
+dist: trusty
+
 language: node_js
 
 node_js: stable
+
+branches:
+  only:
+  - master
+  - develop
 
 cache:
   yarn: true
   directories:
     - node_modules
+
+env:
+  global:
+    - AUTHOR_NAME: "tonypythoneer"
+    - AUTHOR_EMAIL: "tonypythoneer@gmail.com"
+    - secure: lxXr6O25ZUbVpzS409K4hpzGY39f6c883Xbesi5sS2V83uPGgLO/3LKvIbIgq9mr+0DR554YFlTp7b/QBdOLy0xMcJv1U+p/lcfJwB0UFazmRt9UTrChMU4SL9jW7s0p1q1i4JAZ0eKU8iaVXE1nx+4zvu0j4Hiu9JTamTBTByJM+LtlCEOVfmR/QvoCg61CJgl3A50zTDNHaaWIqhiANPLPPg4sA3LJ5lSvbMkytJZQIHJy5PU8LGgb28XAqqoOnHEwK0bPuJTnSxexoD+/6NizOPgXn2TqwxqPMBHwq3TTgnZ6saPTrijMMsmQVRMMDEh0715gwoRUPixVaNQZLBavmBQIr2alGwpgP0TzTHLnX6y5s9bvDbwZD1FuDWklfpNDzCsCfqE8ahzohzV+ZJ2rvgOMEaLjma8T8IM41r011L/mUHla9BlR0Mw4azgvZ0mvSf9fd2XfiKsyUg6CyXLbuQiLmIa7SMoqK52v45NlbSQ3ikBLTHCMmws1xtCQVEhFAkp9tP8X6TSJX4Qi46GU1PRtETrnUjulkLygNXhnuTjfmcQwO6VMDQIgpHb9usE8t4IPQbLmyW/3BN7DiyATJtoJ61AzzxFXVAROTG/V/UrPzte7MqZopIhh1W5UGDEzMkAsinBGgvySkrO61RNtpcos8PMhPfXSHlmjcNM=
 
 install:
   - yarn global add hexo-cli
@@ -26,11 +39,3 @@ after_success:
   - git add --all .
   - git commit -m "${COMMIT_MESSAGE}"
   - git push --force --quiet https://${GITHUB_TOKEN}@github.com/${REPOSITORY} master:${TARGET_BRANCH}
-
-env:
-  global:
-    - AUTHOR_NAME: "tonypythoneer"
-    - AUTHOR_EMAIL: "tonypythoneer@gmail.com"
-    - secure: lxXr6O25ZUbVpzS409K4hpzGY39f6c883Xbesi5sS2V83uPGgLO/3LKvIbIgq9mr+0DR554YFlTp7b/QBdOLy0xMcJv1U+p/lcfJwB0UFazmRt9UTrChMU4SL9jW7s0p1q1i4JAZ0eKU8iaVXE1nx+4zvu0j4Hiu9JTamTBTByJM+LtlCEOVfmR/QvoCg61CJgl3A50zTDNHaaWIqhiANPLPPg4sA3LJ5lSvbMkytJZQIHJy5PU8LGgb28XAqqoOnHEwK0bPuJTnSxexoD+/6NizOPgXn2TqwxqPMBHwq3TTgnZ6saPTrijMMsmQVRMMDEh0715gwoRUPixVaNQZLBavmBQIr2alGwpgP0TzTHLnX6y5s9bvDbwZD1FuDWklfpNDzCsCfqE8ahzohzV+ZJ2rvgOMEaLjma8T8IM41r011L/mUHla9BlR0Mw4azgvZ0mvSf9fd2XfiKsyUg6CyXLbuQiLmIa7SMoqK52v45NlbSQ3ikBLTHCMmws1xtCQVEhFAkp9tP8X6TSJX4Qi46GU1PRtETrnUjulkLygNXhnuTjfmcQwO6VMDQIgpHb9usE8t4IPQbLmyW/3BN7DiyATJtoJ61AzzxFXVAROTG/V/UrPzte7MqZopIhh1W5UGDEzMkAsinBGgvySkrO61RNtpcos8PMhPfXSHlmjcNM=
-
-dist: trusty
