@@ -83,7 +83,7 @@ index_with_subtitle: true
 menu:
   home: / || home
   about: /about/ || user
-  guide: /guide/ || book
+  Guide: /guide/ || book  # non-native webpag
   categories: /categories/ || th
   tags: /tags/ || tags
   archives: /archives/ || archive
