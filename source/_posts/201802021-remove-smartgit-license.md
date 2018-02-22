@@ -4,11 +4,11 @@ date: 2018-02-21 19:23:59
 tags:
 ---
 
-由於我是 Ubuntu 使用者，在 Git gui 的免費方案中目前是選用 **SmartGit**。
+如果你是 Ubuntu 使用者，在 Git gui 是選用 **SmartGit**，希望能給你幫助。
 
-SmartGit 跟 SourceTree 的介面資訊和操作大同小異，但若使用 30 天的免費方案，在 30 天後得需要從路徑中刪除 SmartGit 的設定檔，以便再次啟用免費服務。
+解決目標是：SmartGit 的免費方案使用期間為 30 天，若要再次使用則需要從路徑中刪除 SmartGit 的設定檔。
 
-於是我撰寫了一個 script 腳本，可以協助我達到快速刪除。希望也能幫助有需之人，請享用。
+於是我撰寫了一個 script 腳本，省略其瑣碎的步驟並達到快速刪除，參考如下：
 
 ```sh
 TAGERT_FILE="settings.xml"
