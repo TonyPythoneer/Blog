@@ -9,6 +9,6 @@ uid 在 ElasticSearch 是一個 `meta data` 的資訊欄位，而且是 `字串`
 
 當開發人員把資料從 MySQL/PostgreSQL/MongoDB 倒入至 ElasticSearch 時，可以把資料的 primary key 註記為 document 的 uid。
 
-但是作為排序的對象的話，可能會慘不忍睹。
+但是作為排序的對象的話，可能會慘不忍睹...。(掩面)
 
 參考討論： https://discuss.elastic.co/t/how-does-sorting-on--id-work/21854/2
