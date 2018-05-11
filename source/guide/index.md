@@ -26,9 +26,10 @@ Tags 分兩個階層，以 `first_layer:second_layer` 來命名，分類如下�
   * Flask: A lightwight web framework in Python。若只有外部的業務交付和 high RPS 的需求，是個合適的工具
   * Koa.js: A lightwight web framework in Node.js。比起內建的 http server 還簡單好上手的工具，讓你更專注於 req/res 的處理
 * Database
-  * MySQL: 在 SQL 的世界只有他最通用，沒什麼好說的
+  * MySQL: 世界最通用的 RDMS
+  * ElasticSearch: 搜尋引擎
 * Frontend
-  * Vue.js:  生命苦短，即時行樂。Vue 是一個高度封裝前端框架，可以讓你更快速地建立一個 Client Web Application
+  * Vue.js:  生命苦短，即時行樂。以學習曲線短和高度整合的官方生態而著名。
 * Topic
   * Tech: 一般技術文章
   * Fuck: 幹話
