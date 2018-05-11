@@ -6,7 +6,13 @@ tags:
 - "Database: MySQL"
 ---
 
-當有一個 request 的是 `/api/v3/banners/?zones=tw-app-feature-1,tw-app-feature-5,tw-app-feature-3,tw-app-feature-4,tw-app-feature-2` 必須符合 query string 的順序時，以下有 ORM 和 MySQL built-in function 兩種處理方式，提供比較：
+當有一個 request 的是 `/api/v3/banners/?zones=tw-app-feature-1,tw-app-feature-5,tw-app-feature-3,tw-app-feature-4,tw-app-feature-2` 必須符合 query string 的順序時，這邊有實作 ORM 和 MySQL built-in function 兩種處理方式，可供提供比較。
+
+這邊先講結論：使用 ORM 擁有較高的 python 可讀性，畢竟是用 python 描述；而使用 MySQL built-in function 得要做字串併接，可讀性不高。
+
+<!-- more -->
+
+## ORM
 
 `order by 填入 case then`：
 
@@ -45,7 +51,9 @@ ORDER BY CASE
 END ASC
 ```
 
-MySQL built-in function 的 `FIELD`：
+## MySQL built-in function
+
+使用 MySQL built-in function 的 `FIELD`：
 
 ```python
 field_func_args = ['{}.{}'.format(Zone._meta.db_table, 'slug'), ] + ['\'{}\''.format(zone) for zone in zone_list]
@@ -86,9 +94,9 @@ WHERE
 ORDER BY `manual` ASC
 ```
 
+## 結論
+
 兩者相比的話：
   * 調用 `FIELD` 時， `queryset` 在輸出 SQL 語句會可讀性好很多；但缺點是 Python 要處理成
  SQL 語句的 string 時會比較費工夫，閱讀性比較差。
   * `order by 填入 case then` 在 Python 和 SQL 語句輸出會比較直覺、簡單許多。
-
-如果當你的要 select 的資料不多的時候，用 `order by 填入 case then` 會清爽簡潔許多。
