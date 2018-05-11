@@ -25,6 +25,8 @@ Tags 分兩個階層，以 `first_layer:second_layer` 來命名，分類如下�
   * Django：A heavywight web framework in Python。高度整合 view, model, admin 的工具，對於企業組織在內外部具有高度業務交付能力的開發工具
   * Flask: A lightwight web framework in Python。若只有外部的業務交付和 high RPS 的需求，是個合適的工具
   * Koa.js: A lightwight web framework in Node.js。比起內建的 http server 還簡單好上手的工具，讓你更專注於 req/res 的處理
+* Utility
+  * Celery: 於 Python 可以實踐異步執行的工具。
 * Database
   * MySQL: 世界最通用的 RDMS
   * ElasticSearch: 搜尋引擎
