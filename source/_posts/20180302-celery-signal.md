@@ -3,7 +3,7 @@ title: Celery 沒告訴你 task signal 的事
 date: 2018-03-02 18:30:07
 tags:
 - "Program Language:Python"
-- "Utility: Celery"
+- "Utility:Celery"
 ---
 
 ![message-queue-workflow](/images/2018/3/message-queue-workflow.png)

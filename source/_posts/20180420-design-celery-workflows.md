@@ -3,7 +3,7 @@ title: SNS 高併發訂閱 Topic 測試案例
 date: 2018-04-20 14:13:48
 tags:
 - "Program Language:Python"
-- "Utility: Celery"
+- "Utility:Celery"
 ---
 
 當時想做一個「精準廣播」的功能，把符合資格的裝置名單，建立成一個 AWS 的 SNS topic 作為發送對象。
