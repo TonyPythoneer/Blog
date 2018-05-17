@@ -23,7 +23,7 @@ tags:
     },
 },
 ```
-3. 若 Django 有 admin 後台給營運人員操作，請務必注意 `django_admin_log` 這個東西的存在。這個 table 是用戶於 admin 後台的任何操作都會紀錄的儲存對象。建議 `django_admin_log` 結構如下：
+3. 若 Django 有 admin 後台給營運人員操作，請務必注意 `django_admin_log` 這張 table 會紀錄是用戶於 admin 後台的任何操作都會紀錄的儲存對象。建議 `django_admin_log` 結構如下：
 ```txt
 +------------------+-----------------+----------------------+--------------------+--------------------+
 | TABLE_NAME       | COLUMN_NAME     | COLUMN_TYPE          | CHARACTER_SET_NAME | COLLATION_NAME     |
@@ -38,7 +38,5 @@ tags:
 | django_admin_log | change_message  | longtext             | utf8               | utf8_general_ci    |
 +------------------+-----------------+----------------------+--------------------+--------------------+
 ```
-4.
-
 
 推荐參考資源: http://seanlook.com/2016/10/23/mysql-utf8mb4/
