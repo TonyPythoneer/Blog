@@ -2,8 +2,8 @@
 title: 客製化 order 順序：ORM vs MySQL builtin function
 date: 2018-03-02 18:30:07
 tags:
-- "Backend: Django"
-- "Database: MySQL"
+- "Backend:Django"
+- "Database:MySQL"
 ---
 
 當有一個 request 的是 `/api/v3/banners/?zones=tw-app-feature-1,tw-app-feature-5,tw-app-feature-3,tw-app-feature-4,tw-app-feature-2` 必須符合 query string 的順序時，這邊有實作 ORM 和 MySQL built-in function 兩種處理方式，可供提供比較。
