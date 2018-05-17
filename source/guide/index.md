@@ -31,9 +31,12 @@ Tags 分兩個階層，以 `first_layer:second_layer` 來命名，分類如下�
   * MySQL: 世界最通用的 RDMS
   * ElasticSearch: 搜尋引擎
 * Frontend
-  * Vue.js:  生命苦短，即時行樂。以學習曲線短和高度整合的官方生態而著名。
+  * Vue.js: 生命苦短，請用 Vue.js。以學習曲線短和高度整合的官方生態而著名
 * Topic
+  * Review: 評論
   * Tech: 一般技術文章
   * Fuck: 幹話
   * Product: 產品規劃
   * Workplace: 職場
+* Else
+  * Tool: 好用的應用或自製的工具分享
