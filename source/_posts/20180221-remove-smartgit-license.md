@@ -2,6 +2,7 @@
 title: 刪除 SmartGit license!
 date: 2018-02-21 19:23:59
 tags:
+- "Else:Tool"
 ---
 
 如果你是 Ubuntu 使用者，在 Git gui 是選用 **SmartGit**，希望能給你幫助。
