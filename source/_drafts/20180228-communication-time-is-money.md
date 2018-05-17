@@ -2,6 +2,7 @@
 title: 20180228-communication-time-is-money
 date: 2018-02-27 13:00:16
 tags:
+- "Else:Tool"
 ---
 
 https://www.facebook.com/xdite/posts/10156252803748552
