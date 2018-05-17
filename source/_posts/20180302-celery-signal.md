@@ -159,6 +159,8 @@ celery.redirected: WARNING [2017-11-28 16:02:25] 1511856145.61
 
 before_task_publish -> after_task_publish_test -> task_prerun -> task_postrun
 
+其中 `before_task_publish` 和 ‵after_task_publish_test‵ 是當 celery worker 扮演 `publisher` 所執行的動作；`task_prerun` 和 task_postrun 是當 celery worker 扮演 `subscriber` 所執行的動作。
+
 心得：
 
 雖然這個問題只花我 2 天時間解決，但這個 fix 令我感到很唐突。我覺得不需要為了提供花俏的功能，把這個動作寫在 Backend 裏面，實在是很愚蠢的事情！而且，每次 celery task 完成，會將新的拼貼圖片上傳至 S3 上，當用戶有頻繁地操作時，勢必衍生 task 而無用的圖片不斷上傳，卻未意識這個功能會造成無謂的 IT 支出在這上面！
