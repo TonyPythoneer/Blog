@@ -1,0 +1,60 @@
+@profile(stream=LogFile('memory_profile_log', reportIncrementFlag=False))
+def home(request, username):
+    pass
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+        'require_testing_false': {
+            '()': 'svapp.log.RequireTestingFalse',
+        },
+    },
+    'formatters': {
+        'simple': {
+            'format': '%(name)s: %(levelname)s [%(asctime)s] %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S',
+        }
+    },
+    'handlers': {
+        'profile': {
+            'level': 'DEBUG',
+            'class': 'AnyoneWriteRotatingFileHandler',
+            'formatter': 'simple',
+            'filters': ['require_testing_false', ],
+            'filename': os.path.join(PROJECT_PATH, 'profile.log'),
+            'maxBytes': 1024 * 1024 * 5,  # 5MB
+        }
+    },
+    'loggers': {
+        'memory_profile_log': {
+            'level': 'INFO',
+            'handlers': ['profile'],
+            'propagate': False,
+        }
+    },
+}
+
+
+# coding: utf-8
+
+from logging import handlers
+import os
+
+
+class AnyoneWriteRotatingFileHandler(handlers.RotatingFileHandler):
+
+    def _open(self):
+        # 指定新建立的 log 檔案的權限: 666
+        prev_umask = os.umask(0o111)
+        rtv = handlers.RotatingFileHandler._open(self)
+        os.umask(prev_umask)
+
+        return rtv
