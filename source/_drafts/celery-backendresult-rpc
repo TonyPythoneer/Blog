@@ -1,0 +1,4 @@
+Task execution 100-1000x slower with AMQP as result backend
+https://github.com/celery/celery/issues/1869
+
+很慢不能用 AMQP 測試用 RPC 也是超慢我看 cronjob 跑了半小時沒跑完改回用 redis 不用一分鐘
